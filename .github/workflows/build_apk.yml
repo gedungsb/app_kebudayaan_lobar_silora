@@ -8,14 +8,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-java@v4
+    - uses: actions/checkout@v3
+    - uses: actions/setup-java@v3
       with:
         java-version: '17'
-        distribution: 'temurin'  # 🔥 Tambahkan baris ini agar Java terinstall!
+        distribution: 'temurin'
     - uses: subosito/flutter-action@v2
       with:
-        flutter-version: '3.22.2'
+        # ✅ GANTI INI JADI 3.24.3
+        flutter-version: '3.24.3' 
+        channel: 'stable'
     - run: flutter pub get
     - run: flutter build apk --release
     - uses: actions/upload-artifact@v4
